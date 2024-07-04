@@ -1,0 +1,7 @@
+mkdir thumbs
+cp *.JPG thumbs/
+cd thumbs/
+mogrify -quality 25 -resize 400 *.JPG
+rename .JPG -400.JPG *.JPG
+for v in *.JPG; do mv $v 400-$v; done
+for v in *.JPG; do echo \<a href=\"$v\"\>\<img src=\"400-$v\" /\>\</a\>\<br /\>; done
